@@ -197,8 +197,14 @@ const checkInput = (input) =>{
         }
 }
 
-checkInput(inputsText[0])
-checkInput(inputsText[1])
-checkInput(inputsText[2])
-checkInput(inputsText[3])
-checkInput(inputsText[4])
+
+const readData = async() => {
+    let data = await getInput()
+    let dataArray = data.toString().split("\n")
+    dataArray.forEach(inputsText => 
+        checkInput(inputsText)
+        )
+    
+}
+readData()
+
