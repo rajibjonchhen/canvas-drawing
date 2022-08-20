@@ -1,3 +1,4 @@
+import { writeOutput, getInput } from "./lib/fs-tools.js"
 
 let height = 0
 let width = 0
@@ -7,44 +8,44 @@ const inputsText = ["C 20 4",
 "L 6 3 6 4",
 "R 16 1 20 3",
 "B 10 3 o"]
-
 let output
+let storeOutput
 
-
+// create canvas border function
 function createCanvasBorder (){
     isCanvas=true
     output = new Array(height)
-    for(let i = 0; i < height+2; i++){
-    output[i] = new Array(width)
-            for(let j = 0; j < width+2; j++){
-            if(i=== 0 || i === height+1){
-                output[i][j] = "-"
-            }else if(j === 0 || j === width+1){
-                output[i][j] = "|"
+    for(let row = 0; row < height+2; row++){
+    output[row] = new Array(width)
+            for(let col = 0; col < width+2; col++){
+            if(row=== 0 || row === height+1){
+                output[row][col] = "-"
+            }else if(col === 0 || col === width+1){
+                output[row][col] = "|"
             }else{
-                output[i][j]= " "
+                output[row][col]= " "
             }
         }
     }
     printCanvas()
 }
 
-function printCanvas(){
-    
-    let printLine
+// print the canvas function
+const printCanvas = () =>{
+    let printLine=""
      for(let i = 0; i < height+2; i++){
         let line = ""
-            for(let j = 0; j < width+2; j++){
-                line = line + output[i][j]
+            for(let col = 0; col < width+2; col++){
+                line = line + output[i][col]
         }
         printLine = printLine + "\n" + line
     }
-    console.log(printLine)
-    // console.log(isCanvas)
+    storeOutput += printLine
+    writeOutput(storeOutput)
 }
 
 
-// 1 2 6 2
+// create line function
 function createLine(x1, y1, x2, y2) {
     let line = ""
     if(x1 === x2){
@@ -52,8 +53,8 @@ function createLine(x1, y1, x2, y2) {
             output[i][x1] = "x"
         }
     } else if (y1 === y2){
-        for(let j = x1; j <= x2; j++){
-                output[y1][j] = "x"
+        for(let col = x1; col <= x2; col++){
+                output[y1][col] = "x"
             }  
         } else{
         console.log("The coordinates are not for the verticle or horizontal line.Currently this app can only draw verticle and horizontal line.")
@@ -64,17 +65,70 @@ function createLine(x1, y1, x2, y2) {
 
 function createRectangle(x1, y1, x2, y2){
     let line = ""
-    if(x2 > x1 && y2 > y1){
+    if(!isCanvas){
+        writeOutput("create canvas is absent")
+    }else if(x2 > x1 && y2 > y1){
         for(let i = y1; i <= y2; i++){
             output[i][x1] = "x"
             output[i][x2] = "x"
         }
-        for(let j = x1; j <= x2; j++){
-            output[y1][j] = "x"
-            output[y2][j] = "x"
+        for(let col = x1; col <= x2; col++){
+            output[y1][col] = "x"
+            output[y2][col] = "x"
         }
+
+        printCanvas()
     }else{
         console.log("Cannot create a rectangle using the given coordinates.")
+    }
+}
+
+function bucketFill (y, x, char){
+
+    // console.log(output)
+    if (x > 0 || x < height || y > 0 || y < width) {
+            for(let row = x; row<=height; row++){
+                for(let col = y; col <= width; col++ ){
+                    console.log('dr',row,col)
+                    if(output[row][col] === " "){
+                        output[row][col] = "o"
+                    }else{
+                        col=width
+                    }
+                }
+            }
+
+            for(let row = x; row > 0; row--){
+                for(let col = y; col > 0; col-- ){
+                    console.log("ul",row,col)
+                    if(output[row][col] === " "){
+                        output[row][col] = "o"
+                    }else{
+                        col=0
+                    }
+                }
+            }
+
+            for(let row = x; row > 0; row--){
+                for(let col = y+1; col <= width; col++ ){
+                    console.log('ur',row,col)
+                    if(output[row][col] === " "){
+                        output[row][col] = "o"
+                    }else{
+                        col=width
+                    }
+                }
+            }
+            for(let row = x; row<=height; row++){
+                for(let col = y-1; col > 0; col-- ){
+                    console.log("dl",row,col)
+                    if(output[row][col] === " "){
+                        output[row][col] = "o"
+                    }else{
+                        col=0
+                    }
+                }
+            }
     }
     printCanvas()
 }
@@ -95,7 +149,10 @@ const checkInput = (input) =>{
             break;
             
             case("l"):
-            if(inputArray.length === 5){
+            if(!isCanvas){
+                writeOutput("The canvas is absent")
+                throw Error("error - The canvas is absent")
+            }else if(inputArray.length === 5){
                 const x1 = parseInt(inputArray[1])
                 const y1 = parseInt(inputArray[2])
                 const x2 = parseInt(inputArray[3])
@@ -107,12 +164,29 @@ const checkInput = (input) =>{
             break;
             
             case("r"):
-            if(inputArray.length === 5){
+            if(!isCanvas){
+                writeOutput("The canvas is absent")
+                throw Error("error")
+            }else if(inputArray.length === 5){
                 const x1 = parseInt(inputArray[1])
                 const y1 = parseInt(inputArray[2])
                 const x2 = parseInt(inputArray[3])
                 const y2 = parseInt(inputArray[4])
                 createRectangle(x1, y1, x2, y2)
+            } else{
+                console.log("Input for create rectangle must be char num num num num format")
+            }
+            break;
+
+            case("b"):
+            if(!isCanvas){
+                writeOutput("The canvas is absent")
+                throw Error("error")
+            }else if(inputArray.length === 4){
+                const x = parseInt(inputArray[1])
+                const y = parseInt(inputArray[2])
+                const char = inputArray[3]
+                bucketFill(x, y, char)
             } else{
                 console.log("Input for create rectangle must be char num num num num format")
             }
@@ -123,7 +197,8 @@ const checkInput = (input) =>{
         }
 }
 
-checkInput("C 20 4")
-checkInput("L 1 2 6 2")
-checkInput("L 6 3 6 4",)
-checkInput("R 16 1 20 3")
+checkInput(inputsText[0])
+checkInput(inputsText[1])
+checkInput(inputsText[2])
+checkInput(inputsText[3])
+checkInput(inputsText[4])
