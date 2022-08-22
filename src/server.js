@@ -3,11 +3,6 @@ import { writeOutput, getInput } from "./lib/fs-tools.js"
 let height = 0
 let width = 0
 let isCanvas = false
-const inputsText = ["C 20 4",
-"L 1 2 6 2",
-"L 6 3 6 4",
-"R 16 1 20 3",
-"B 10 3 o"]
 let output
 let storeOutput
 
@@ -85,11 +80,9 @@ function createRectangle(x1, y1, x2, y2){
 
 function bucketFill (y, x, char){
 
-    // console.log(output)
     if (x > 0 || x < height || y > 0 || y < width) {
             for(let row = x; row<=height; row++){
                 for(let col = y; col <= width; col++ ){
-                    console.log('dr',row,col)
                     if(output[row][col] === " "){
                         output[row][col] = "o"
                     }else{
@@ -100,7 +93,6 @@ function bucketFill (y, x, char){
 
             for(let row = x; row > 0; row--){
                 for(let col = y; col > 0; col-- ){
-                    console.log("ul",row,col)
                     if(output[row][col] === " "){
                         output[row][col] = "o"
                     }else{
@@ -111,7 +103,6 @@ function bucketFill (y, x, char){
 
             for(let row = x; row > 0; row--){
                 for(let col = y+1; col <= width; col++ ){
-                    console.log('ur',row,col)
                     if(output[row][col] === " "){
                         output[row][col] = "o"
                     }else{
@@ -121,7 +112,6 @@ function bucketFill (y, x, char){
             }
             for(let row = x; row<=height; row++){
                 for(let col = y-1; col > 0; col-- ){
-                    console.log("dl",row,col)
                     if(output[row][col] === " "){
                         output[row][col] = "o"
                     }else{
@@ -194,6 +184,7 @@ const checkInput = (input) =>{
             
             default: 
             console.log("Error input")
+            break;
         }
 }
 

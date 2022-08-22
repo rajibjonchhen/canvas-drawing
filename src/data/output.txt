@@ -6,26 +6,26 @@ undefined
 |                    |
 ----------------------
 ----------------------
+|                    |
 |xxxxxx              |
 |                    |
 |                    |
+----------------------
+----------------------
 |                    |
-----------------------
-----------------------
 |xxxxxx              |
 |     x              |
 |     x              |
-|     x              |
 ----------------------
 ----------------------
-|xxxxxx         xxxxx|
-|     x         x   x|
+|               xxxxx|
+|xxxxxx         x   x|
 |     x         xxxxx|
 |     x              |
 ----------------------
 ----------------------
-|xxxxxxoooooooooxxxxx|
-|     xooooooooox   x|
+|oooooooooooooooxxxxx|
+|xxxxxxooooooooox   x|
 |     xoooooooooxxxxx|
 |     xoooooooooooooo|
 ----------------------

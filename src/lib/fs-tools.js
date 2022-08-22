@@ -6,7 +6,6 @@ const { readFile, writeFile, createReadStream } = fs
 
 
 const dataFolderPath = join(dirname(fileURLToPath(import.meta.url)), "../data")
-console.log("dataFolderPath", dataFolderPath)
 const inputPath = join(dataFolderPath, "input.txt")
 const outputPath = join(dataFolderPath, "output.txt")
 
