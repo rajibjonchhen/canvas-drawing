@@ -1,5 +1,5 @@
+import { floodFill } from "./bucketFill.js";
 import {
-  bucketFill,
   createCanvasBorder,
   createLine,
   createRectangle,
@@ -25,7 +25,7 @@ export default function checkInput(input, drawing) {
         console.log("Input for create canvas needs to be char num num format");
       }
       break;
-
+       //if command is for line, canvas is present and correct format command is passed else console log the error message  
     case "l":
       if (!drawing.isCanvas) {
         writeOutput("The canvas is absent");
@@ -68,7 +68,8 @@ export default function checkInput(input, drawing) {
         const x = parseInt(inputArray[1]);
         const y = parseInt(inputArray[2]);
         const char = inputArray[3];
-        bucketFill(x, y, char, drawing);
+        // bucketFill(x, y, char, drawing);
+        floodFill(x, y," ", char, drawing)
       } else {
         console.log(
           "Input for create rectangle must be char num num num num format"

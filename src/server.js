@@ -17,3 +17,7 @@ const startCommand = async () => {
   drawing.inputCommandArray.forEach((command) => checkInput(command, drawing));
 };
 startCommand();
+
+
+
+

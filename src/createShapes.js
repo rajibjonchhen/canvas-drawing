@@ -50,53 +50,53 @@ export function createRectangle(x1, y1, x2, y2, drawing) {
       drawing.output[y1][col] = "x";
       drawing.output[y2][col] = "x";
     }
-
+    console.log(drawing)
     printCanvas(drawing);
   } else {
     console.log("Cannot create a rectangle using the given coordinates.");
   }
 }
 
-export function bucketFill(y, x, char, drawing) {
-  if (x > 0 || x < drawing.canvasHeight || y > 0 || y < drawing.canvasWidth) {
-    for (let row = x; row <= drawing.canvasHeight; row++) {
-      for (let col = y; col <= drawing.canvasWidth; col++) {
-        if (drawing.output[row][col] === " ") {
-          drawing.output[row][col] = "o";
-        } else {
-          col = drawing.canvasWidth;
-        }
-      }
-    }
+// export function bucketFill(y, x, char, drawing) {
+//   if (x > 0 || x < drawing.canvasHeight || y > 0 || y < drawing.canvasWidth) {
+//     for (let row = x; row <= drawing.canvasHeight; row++) {
+//       for (let col = y; col <= drawing.canvasWidth; col++) {
+//         if (drawing.output[row][col] === " ") {
+//           drawing.output[row][col] = "o";
+//         } else {
+//           col = drawing.canvasWidth;
+//         }
+//       }
+//     }
 
-    for (let row = x; row > 0; row--) {
-      for (let col = y; col > 0; col--) {
-        if (drawing.output[row][col] === " ") {
-          drawing.output[row][col] = "o";
-        } else {
-          col = 0;
-        }
-      }
-    }
+//     for (let row = x; row > 0; row--) {
+//       for (let col = y; col > 0; col--) {
+//         if (drawing.output[row][col] === " ") {
+//           drawing.output[row][col] = "o";
+//         } else {
+//           col = 0;
+//         }
+//       }
+//     }
 
-    for (let row = x; row > 0; row--) {
-      for (let col = y + 1; col <= drawing.canvasWidth; col++) {
-        if (drawing.output[row][col] === " ") {
-          drawing.output[row][col] = "o";
-        } else {
-          col = drawing.canvasWidth;
-        }
-      }
-    }
-    for (let row = x; row <= drawing.canvasHeight; row++) {
-      for (let col = y - 1; col > 0; col--) {
-        if (drawing.output[row][col] === " ") {
-          drawing.output[row][col] = "o";
-        } else {
-          col = 0;
-        }
-      }
-    }
-  }
-  printCanvas(drawing);
-}
+//     for (let row = x; row > 0; row--) {
+//       for (let col = y + 1; col <= drawing.canvasWidth; col++) {
+//         if (drawing.output[row][col] === " ") {
+//           drawing.output[row][col] = "o";
+//         } else {
+//           col = drawing.canvasWidth;
+//         }
+//       }
+//     }
+//     for (let row = x; row <= drawing.canvasHeight; row++) {
+//       for (let col = y - 1; col > 0; col--) {
+//         if (drawing.output[row][col] === " ") {
+//           drawing.output[row][col] = "o";
+//         } else {
+//           col = 0;
+//         }
+//       }
+//     }
+//   }
+//   printCanvas(drawing);
+// }

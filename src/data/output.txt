@@ -18,14 +18,14 @@
 |     x              |
 ----------------------
 ----------------------
-|               xxxxx|
-|xxxxxx         x   x|
-|     x         xxxxx|
+|              xxxxx |
+|xxxxxx        x   x |
+|     x        xxxxx |
 |     x              |
 ----------------------
 ----------------------
-|oooooooooooooooxxxxx|
-|xxxxxxooooooooox   x|
-|     xoooooooooxxxxx|
+|ooooooooooooooxxxxxo|
+|xxxxxxoooooooox   xo|
+|     xooooooooxxxxxo|
 |     xoooooooooooooo|
 ----------------------
