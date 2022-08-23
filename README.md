@@ -13,7 +13,7 @@
         3. Check if all the points lies inside the canvas if not throw error
         4. In create line - check if the points are for verticle or horizontal  line if not throw error.
 
-input =>
+input => <br/>
         C 20 4 <br/>
         L 1 2 6 2<br/>
         L 6 3 6 4<br/>
