@@ -1,3 +1,4 @@
+import isInCanvas from "./isInCanvas.js";
 import { printCanvas } from "./printOutput.js";
 
 // create canvas border function
@@ -21,7 +22,7 @@ export function createCanvasBorder(drawing) {
 
 // create line function
 export function createLine(x1, y1, x2, y2, drawing) {
-  
+  if(isInCanvas(y1,x1, drawing) && isInCanvas(y2, x2, drawing)){
     // checking if the point is a verticle line
     if (x1 === x2) {
     for (let i = y1; i <= y2; i++) {
@@ -35,12 +36,17 @@ export function createLine(x1, y1, x2, y2, drawing) {
   } else {
     throw Error(
       "The coordinates are not for the verticle or horizontal line.Currently this app can only draw verticle and horizontal line."
-    );
+    )}
+    printCanvas(drawing);
+  } else{
+    throw Error(
+        "Please check the inputs of line command as the point lies outside of canvas"
+      )}
   }
-  printCanvas(drawing);
-}
+
 
 export function createRectangle(x1, y1, x2, y2, drawing) {
+  if(isInCanvas(y1,x1, drawing) && isInCanvas(y2, x2, drawing)){
   let line = "";
   if (!drawing.isCanvas) {
     writeOutput("create canvas is absent");
@@ -54,7 +60,13 @@ export function createRectangle(x1, y1, x2, y2, drawing) {
       drawing.output[y2][col] = "x";
     }
     printCanvas(drawing);
-  } else {
-    throw Error("Cannot create a rectangle using the given coordinates.");
-  }
+    } else {
+        throw Error("Cannot create a rectangle using the given coordinates.");
+    }
 }
+else{
+    throw Error(
+        "Please check the command of rectangle in input as the point lies outside of canvas"
+      )}
+  }
+

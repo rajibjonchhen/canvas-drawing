@@ -1,8 +1,7 @@
 
 import { printCanvas } from "./printOutput.js";
 
-    // Function that returns true if
-    // the given pixel is valid
+//    fuction to check if the points are valid or not
     function isValid(x, y, prevC, newC, drawing)
     {
         if(x<0 || x>= drawing.canvasHeight+1 || y<0 || y>= drawing.canvasWidth+1 || drawing.output[x][y]!= prevC
@@ -11,24 +10,23 @@ import { printCanvas } from "./printOutput.js";
         return true;
     }
  
-    // FloodFill function
+    // function to fill the previous color or char with new color using backtracking  - Brute force approach  -  (Depth-First Search method) -
     export function floodFill(col, row, prevC, newC, drawing)
     {
+        // array to hold the coordinated of valid point
         let queue = [];
-        // Append the position of starting
-        // pixel of the component
+    //   starting point
         queue.push([row, col]);
  
-        // start with coloring the given point with the new char
+        // start with coloring the given point with the new char/color
         drawing.output[row][col] = newC;
- 
-        // While the queue is not empty i.e. the
-        // whole component having prevC color
-        // is not colored with newC color
+        
+        // loop until all the points are visited
         while(queue.length > 0)
         {
-            // Dequeue the front node
+            // get the valid point from the back of the array
             let currPixel = queue[queue.length - 1];
+            // remove the last item from the array
             queue.pop();
  
             let posX = currPixel[0];
