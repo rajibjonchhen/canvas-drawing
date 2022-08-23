@@ -1,4 +1,5 @@
 import { floodFill } from "./bucketFill.js";
+
 import {
   createCanvasBorder,
   createLine,
@@ -37,7 +38,7 @@ export default function checkInput(input, drawing) {
         const y2 = parseInt(inputArray[4]);
         createLine(x1, y1, x2, y2, drawing);
       } else {
-        console.log(
+        throw Error(
           "Input for create line must be char num num num num format"
         );
       }
@@ -54,7 +55,7 @@ export default function checkInput(input, drawing) {
         const y2 = parseInt(inputArray[4]);
         createRectangle(x1, y1, x2, y2, drawing);
       } else {
-        console.log(
+        throw Error(
           "Input for create rectangle must be char num num num num format"
         );
       }
@@ -67,11 +68,11 @@ export default function checkInput(input, drawing) {
       } else if (inputArray.length === 4) {
         const x = parseInt(inputArray[1]);
         const y = parseInt(inputArray[2]);
-        const char = inputArray[3];
-        // bucketFill(x, y, char, drawing);
-        floodFill(x, y," ", char, drawing)
+        const newC = inputArray[3];
+        let prevC = " "
+        floodFill(x, y,prevC, newC, drawing)
       } else {
-        console.log(
+        throw Error(
           "Input for create rectangle must be char num num num num format"
         );
       }

@@ -1,4 +1,3 @@
-// Javascript implementation of the approach
 
 import { printCanvas } from "./printOutput.js";
 
@@ -12,17 +11,15 @@ import { printCanvas } from "./printOutput.js";
         return true;
     }
  
- 
     // FloodFill function
     export function floodFill(col, row, prevC, newC, drawing)
     {
         let queue = [];
- 
         // Append the position of starting
         // pixel of the component
         queue.push([row, col]);
  
-        // Color the pixel with the new color
+        // start with coloring the given point with the new char
         drawing.output[row][col] = newC;
  
         // While the queue is not empty i.e. the

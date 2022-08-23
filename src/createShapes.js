@@ -21,16 +21,19 @@ export function createCanvasBorder(drawing) {
 
 // create line function
 export function createLine(x1, y1, x2, y2, drawing) {
-  if (x1 === x2) {
+  
+    // checking if the point is a verticle line
+    if (x1 === x2) {
     for (let i = y1; i <= y2; i++) {
       drawing.output[i][x1] = "x";
     }
+    // checking if the point is a horizontal line
   } else if (y1 === y2) {
     for (let col = x1; col <= x2; col++) {
       drawing.output[y1][col] = "x";
     }
   } else {
-    console.log(
+    throw Error(
       "The coordinates are not for the verticle or horizontal line.Currently this app can only draw verticle and horizontal line."
     );
   }
@@ -50,53 +53,8 @@ export function createRectangle(x1, y1, x2, y2, drawing) {
       drawing.output[y1][col] = "x";
       drawing.output[y2][col] = "x";
     }
-    console.log(drawing)
     printCanvas(drawing);
   } else {
-    console.log("Cannot create a rectangle using the given coordinates.");
+    throw Error("Cannot create a rectangle using the given coordinates.");
   }
 }
-
-// export function bucketFill(y, x, char, drawing) {
-//   if (x > 0 || x < drawing.canvasHeight || y > 0 || y < drawing.canvasWidth) {
-//     for (let row = x; row <= drawing.canvasHeight; row++) {
-//       for (let col = y; col <= drawing.canvasWidth; col++) {
-//         if (drawing.output[row][col] === " ") {
-//           drawing.output[row][col] = "o";
-//         } else {
-//           col = drawing.canvasWidth;
-//         }
-//       }
-//     }
-
-//     for (let row = x; row > 0; row--) {
-//       for (let col = y; col > 0; col--) {
-//         if (drawing.output[row][col] === " ") {
-//           drawing.output[row][col] = "o";
-//         } else {
-//           col = 0;
-//         }
-//       }
-//     }
-
-//     for (let row = x; row > 0; row--) {
-//       for (let col = y + 1; col <= drawing.canvasWidth; col++) {
-//         if (drawing.output[row][col] === " ") {
-//           drawing.output[row][col] = "o";
-//         } else {
-//           col = drawing.canvasWidth;
-//         }
-//       }
-//     }
-//     for (let row = x; row <= drawing.canvasHeight; row++) {
-//       for (let col = y - 1; col > 0; col--) {
-//         if (drawing.output[row][col] === " ") {
-//           drawing.output[row][col] = "o";
-//         } else {
-//           col = 0;
-//         }
-//       }
-//     }
-//   }
-//   printCanvas(drawing);
-// }
