@@ -14,11 +14,11 @@
         4. In create line - check if the points are for verticle or horizontal  line if not throw error.
 
 input =>
-        C 20 4
-        L 1 2 6 2
-        L 6 3 6 4
-        R 15 1 19 3
-        B 10 3 o
+        C 20 4 <br/>
+        L 1 2 6 2<br/>
+        L 6 3 6 4<br/>
+        R 15 1 19 3<br/>
+        B 10 3 o<br/>
 
 
 output =>
