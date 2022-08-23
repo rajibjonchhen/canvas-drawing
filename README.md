@@ -3,7 +3,7 @@
     
     1. Read commands using - readFile - store in an array.
     2. Pass the commands with forEach loop into the checkInput function.
-    3. Identify the command and check validity if pass create canvas store the output in the 2dimensional array.
+    3. Identify the command using switch case and check validity if pass create canvas store the output in the 2dimensional array.
     4. then create other shapes after validation and update output in the 2 dimensional array.
     5. For bucket fill - start with coloring the given point then explore the adjacent point if they are valid color them and take one of them explore its adjacent point and color them continue this process until valid points end and color all the need points.
 
