@@ -22,34 +22,4 @@ input =>
 
 
 output =>
-
-----------------------
-|                    |
-|                    |
-|                    |
-|                    |
-----------------------
-----------------------
-|                    |
-|xxxxxx              |
-|                    |
-|                    |
-----------------------
-----------------------
-|                    |
-|xxxxxx              |
-|     x              |
-|     x              |
-----------------------
-----------------------
-|              xxxxx |
-|xxxxxx        x   x |
-|     x        xxxxx |
-|     x              |
-----------------------
-----------------------
-|ooooooooooooooxxxxxo|
-|xxxxxxoooooooox   xo|
-|     xooooooooxxxxxo|
-|     xoooooooooooooo|
-----------------------
+<img src="./src/data/output.png" alt="output"/>
