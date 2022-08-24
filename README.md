@@ -22,4 +22,4 @@ input => <br/>
 
 
 output =>
-<img src="./src/data/output.png" alt="output"/>
+<img src="./src/assets/output.png" alt="output"/>
