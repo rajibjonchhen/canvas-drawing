@@ -32,13 +32,12 @@ import { printCanvas } from "./printOutput.js";
             let posX = currPixel[0];
             let posY = currPixel[1];
  
-            // Check if the adjacent
-            // pixels are valid
+            // Check if the adjacent points are valid
             if(isValid(posX + 1, posY, prevC, newC, drawing))
             {
-                // Color with newC
-                // if valid and enqueue
+                // add new color/char if valid
                 drawing.output[posX + 1][posY] = newC;
+                // push the valid point to the que to check the adjacent points  
                 queue.push([posX + 1, posY]);
             }
  
@@ -60,5 +59,6 @@ import { printCanvas } from "./printOutput.js";
                 queue.push([posX, posY-1]);
             }
         }
+
         printCanvas(drawing)
     }
