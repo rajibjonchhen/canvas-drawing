@@ -3,15 +3,20 @@
     
     1. Read commands using - readFile - store in an array.
     2. Pass the commands with forEach loop into the checkInput function.
-    3. Identify the command using switch case and check validity if pass create canvas store the output in the 2dimensional array.
+    3. Identify the command using switch case and check validity if pass create canvas store 
+       the output in the 2dimensional array.
     4. then create other shapes after validation and update output in the 2 dimensional array.
-    5. For bucket fill - start with coloring the given point then explore the adjacent point if they are valid color them and take one of them explore its adjacent point and color them continue this process until valid points end and color all the need points.
+    5. For bucket fill - start with coloring the given point then explore the adjacent point 
+       if they are valid color them and take one of them explore its adjacent point and color 
+       them continue this process until valid points end and color all the need points.
+    6. Use writeFile to generate the output.txt
 
     Validation Check
         1. Check if the commands are valid if not throw error
         2. Check canvas before creating shape if canvas does not exist throw error
         3. Check if all the points lies inside the canvas if not throw error
-        4. In create line - check if the points are for verticle or horizontal  line if not throw error.
+        4. In create line - check if the points are for verticle or horizontal  line 
+           if not throw error.
 
 input => <br/>
         C 20 4 <br/>
