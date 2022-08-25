@@ -10,7 +10,7 @@ import { printCanvas } from "./printOutput.js";
         return true;
     }
  
-    // function to fill the previous color or char with new color using backtracking  - Brute force approach  -  (Depth-First Search method) -
+    // function to fill the previous color or char with new color using backtracking  - Brute force approach 
     export function floodFill(col, row, prevC, newC, drawing)
     {
         // array to hold the coordinated of valid point
