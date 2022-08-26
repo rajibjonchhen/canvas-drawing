@@ -1,5 +1,5 @@
 
-import { printCanvas } from "./printOutput.js";
+import { printCanvas } from "./printCanvas.js";
 
 //    fuction to check if the points are valid or not
     function isValid(x, y, prevC, newC, drawing)

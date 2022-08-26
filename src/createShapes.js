@@ -1,5 +1,5 @@
 import isInCanvas from "./isInCanvas.js";
-import { printCanvas } from "./printOutput.js";
+import { printCanvas } from "./printCanvas.js";
 
 // create canvas border function
 export function createCanvasBorder(drawing) {
