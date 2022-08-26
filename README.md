@@ -1,7 +1,7 @@
 # canvas-drawing
  #Basic functionality read the commands from input.txt and if the commands are valid then produce output in the output.txt
     
-    <h4>Command to start the app - ( npm start or npm run dev )</h4>
+Command to start the app - ( npm start or npm run dev )
 
     1. Read commands using - readFile - store in an array.
     2. Pass the commands with forEach loop into the checkInput function.
